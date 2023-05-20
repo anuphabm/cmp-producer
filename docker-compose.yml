@@ -1,0 +1,21 @@
+version: '3.6'
+
+networks:
+  rabbitmq-example:
+    driver: bridge
+
+services:
+  rabbitmq:
+    image: 'rabbitmq:3-management'
+    networks:
+      - rabbitmq-example
+    volumes:
+      - ./rabbit-mq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+    ports:
+      - "8080:15672"
+      # - "5000:5673" # Expose this port while running the producer and consumer services locally
+    healthcheck:
+      test: [ "CMD", "rabbitmqctl", "status" ]
+      interval: 5s
+      timeout: 15s
+      retries: 5
