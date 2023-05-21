@@ -5,6 +5,7 @@ dev:
     stdout: true
     level: debug
   server:
+    path: "/gtmcpm/api"
     port: ":7004"
     rmqurl: "amqp://guest:guest@localhost:5000/"
 
@@ -14,6 +15,7 @@ sit:
     level: debug
     path: applog.log
   server:
+    path: "/gtmcpm/api"
     port: ":7004"
     rmqurl: "amqp://guest:guest@localhost:5000/"
 
@@ -23,5 +25,6 @@ prod:
     level: debug
     path: applog.log
   server:
+    path: "/gtmcpm/api"
     port: ":7004"
     rmqurl: "amqp://guest:guest@localhost:5000/"

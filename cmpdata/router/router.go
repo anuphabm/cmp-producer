@@ -18,7 +18,9 @@ func Init() {
 
 func NewRouter() *gin.Engine {
 	router := gin.New()
-	resource := router.Group("/api")
+	envMode := os.Getenv("RUN_MODE")
+	group := config.Appconfig.GetString(fmt.Sprintf("%s.server.path", envMode))
+	resource := router.Group(group)
 	resource.Use(middleware.LogRequestInfo())
 	{
 		resource.POST("/env/:env/table/:table", controller.ReciveData)
