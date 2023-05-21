@@ -1,0 +1,3 @@
+curl -X POST -H 'Content-Type: text/plain' -d '^UTBL("ZTLRPMTH","AN0816",6)=61005|86002|BATCH|[ZUTBLTLRPMT]COMPTITLE1|BATCH|61005' http://localhost:7004/api/env/dev3/table/UTBL
+
+curl -X POST -H 'Content-Type: text/plain' -d '^UTBL("ZTLRPMTH","AN0816",6)=61005|86002|BATCH|[ZUTBLTLRPMT]COMPTITLE1|BATCH|61005' http://localhost:7004/api/env/iuat/table/UTBL

@@ -57,6 +57,6 @@ func (x RMQConsumer) Consume() {
 		}
 	}()
 	msg := fmt.Sprintf("Started listening for messages on '%s' queue", x.Queue)
-	logger.FatalLn(msg)
+	logger.InfoLn(msg)
 	<-forever
 }

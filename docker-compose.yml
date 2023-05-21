@@ -13,7 +13,7 @@ services:
       - ./rabbit-mq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
     ports:
       - "8080:15672"
-      # - "5000:5673" # Expose this port while running the producer and consumer services locally
+      - "5000:5673" # Expose this port while running the producer and consumer services locally
     healthcheck:
       test: [ "CMD", "rabbitmqctl", "status" ]
       interval: 5s

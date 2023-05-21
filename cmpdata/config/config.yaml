@@ -6,14 +6,7 @@ dev:
     level: debug
   server:
     port: ":7004"
-  database:
-    host: "localhost"
-    port: 15432
-    username: "admin"
-    password: "GTM@fis2019."
-    name: "cmpdata"
-    schema: "public"
-    logmode: true
+    rmqurl: "amqp://guest:guest@localhost:5000/"
 
 sit:
   Logging:
@@ -22,14 +15,7 @@ sit:
     path: applog.log
   server:
     port: ":7004"
-  database:
-    host: "localhost"
-    port: 5432
-    username: "admin"
-    password: "Gtm@fis2019."
-    name: "cmpdata"
-    schema: "public"
-    logmode: true
+    rmqurl: "amqp://guest:guest@localhost:5000/"
 
 prod:
   Logging:
@@ -38,11 +24,4 @@ prod:
     path: applog.log
   server:
     port: ":7004"
-  database:
-    host: "localhost"
-    port: 5432
-    username: "admin"
-    password: "Gtm@fis2019."
-    name: "cmpdata"
-    schema: "public"
-    logmode: true
+    rmqurl: "amqp://guest:guest@localhost:5000/"

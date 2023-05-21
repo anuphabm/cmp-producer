@@ -4,13 +4,16 @@ import (
 	"cmpdata/api/controller"
 	"cmpdata/config"
 	"cmpdata/middleware"
+	"fmt"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
 
 func Init() {
 	router := NewRouter()
-	router.Run(config.Appconfig.GetString("server.port"))
+	envMode := os.Getenv("RUN_MODE")
+	router.Run(config.Appconfig.GetString(fmt.Sprintf("%s.server.port", envMode)))
 }
 
 func NewRouter() *gin.Engine {

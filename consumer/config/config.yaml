@@ -4,10 +4,11 @@ dev:
   Logging:
     stdout: true
     level: debug
-  handles:
+  handlers:
     scmp: "dev3"
     cmps: "iuat"
-
+  server:
+    rmqurl: "amqp://guest:guest@localhost:5000/"
   database:
     host: "localhost"
     port: 15432
@@ -23,7 +24,7 @@ sit:
     level: debug
     path: applog.log
   server:
-    port: ":7004"
+    rmqurl: "amqp://guest:guest@localhost:5000/"
   database:
     host: "localhost"
     port: 5432
@@ -39,7 +40,7 @@ prod:
     level: debug
     path: applog.log
   server:
-    port: ":7004"
+    rmqurl: "amqp://guest:guest@localhost:5000/"
   database:
     host: "localhost"
     port: 5432

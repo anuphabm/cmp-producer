@@ -10,9 +10,9 @@ import (
 
 type Same struct {
 	gorm.Model
-	Table string `json:"table"`
-	Key   string `json:"key"`
-	Value string `json:"value"`
+	GtmTable string `json:"gtmTable"`
+	Key      string `json:"key"`
+	Value    string `json:"value"`
 }
 
 func (Same) TableName() string {

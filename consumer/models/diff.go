@@ -10,11 +10,10 @@ import (
 
 type Diff struct {
 	gorm.Model
-	Env    string `json:"env"`
-	FlgHas bool   `json:"flgHas"`
-	Table  string `json:"table"`
-	Key    string `json:"key"`
-	Value  string `json:"value"`
+	GtmEnv   string `json:"gtmEnv"`
+	GtmTable string `json:"gtmTable"`
+	Key      string `json:"key"`
+	Value    string `json:"value"`
 }
 
 func (Diff) TableName() string {

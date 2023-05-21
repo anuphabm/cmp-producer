@@ -31,7 +31,7 @@ func ReciveData(c *gin.Context) {
 	logger.InfoLn(fmt.Sprintf("env:[%s], table:[%s]", env, table))
 
 	bodyAsByteArray, _ := io.ReadAll(c.Request.Body)
-	bodyStr := fmt.Sprintf("%s|%s|%s", env, table, string(bodyAsByteArray))
+	bodyStr := fmt.Sprintf("%s#%s#%s", env, table, string(bodyAsByteArray))
 	logger.InfoLn(bodyStr)
 
 	// connection to rmq
