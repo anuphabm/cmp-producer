@@ -6,7 +6,7 @@ dev:
     level: debug
   handlers:
     scmp: "dev3"
-    cmps: "iuat"
+    cmps: "iuat,dev"
   server:
     rmqurl: "amqp://guest:guest@localhost:5000/"
   database:

@@ -45,7 +45,7 @@ func (s *Service) setKey() error {
 
 func (s *Service) cmpKey() error {
 	// first in same
-	var same models.Same
+	var same models.Master
 	result := database.DB.Where("gtm_table = ? and key = ?", s.table, s.key).Find(&same)
 	if result.RowsAffected <= 0 {
 		//insert diff
@@ -64,11 +64,11 @@ func (s *Service) cmpKey() error {
 }
 
 func (s *Service) save() error {
-	var t models.Same
+	var t models.Master
 	result := database.DB.Where("gtm_table = ? and key = ?", s.table, s.key).Find(&t)
 	if result.RowsAffected <= 0 {
 		// insert
-		tmp := models.Same{
+		tmp := models.Master{
 			GtmTable: s.table,
 			Key:      s.key,
 			Value:    s.value,
@@ -101,9 +101,7 @@ func (s *Service) Process() error {
 		if err := s.save(); err != nil {
 			return err
 		}
-	}
-
-	if s.env == cmps {
+	} else if strings.Contains(cmps, s.env) {
 		// compare
 		if err := s.cmpKey(); err != nil {
 			return err
