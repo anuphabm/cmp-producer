@@ -30,7 +30,7 @@ RUN apk add libssl1.1
 RUN apk upgrade --available
 RUN rm -rf /var/cache/apk/*
 
-COPY --from=builder /build/config/config.yaml /config
+COPY --from=builder /build/config/config.yaml /config/config.yaml
 COPY --from=builder /build/main /
 ENV TZ=Asia/Bangkok
 ENV GIN_MODE=release
