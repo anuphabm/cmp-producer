@@ -1,0 +1,33 @@
+pipeline {
+    
+    agent { 
+        label 'master'
+    } 
+    stages {
+        stage('List all file') {
+            steps {
+                // git branch: '${BRANCH}'
+                sh "ls -lst"
+            }
+        }
+        stage('Docker build') {
+            steps {
+                dir("${env.WORKSPACE}/consumer") {
+                    echo 'Build App'
+                    sh  "docker build -t kbtg-consumer:latest ."
+                }
+            }
+            
+        }
+        stage('Scan image') {
+            steps{
+                sh "/usr/local/bin/trivy --no-progress --exit-code 1 --severity  LOW,MEDIUM,HIGH,CRITICAL kbtg-consumer:latest"
+            }
+        }
+        // stage('Push image') {
+        //     steps{
+        //         sh "${JENKINS_HOME}/pushimg.sh kbtg-cmpdata lpp"
+        //     }
+        // }
+    }
+}
